@@ -7,9 +7,9 @@
         "PYHTONPATH": "${workspacefolder}"
     },
     "terminal.integrated.env.linux": {
-        "PHYTONPATH": "${workspaceFolder}"
+        "PYTHONPATH": "${workspaceFolder}"
     },
     "terminal.integrated.env.osx": {
-        "PHYTONPATH": "${workspaceFolder}"
+        "PYTHONPATH": "${workspaceFolder}"
     }
 }

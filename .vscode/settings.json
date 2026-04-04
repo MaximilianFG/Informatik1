@@ -4,7 +4,7 @@
         "source.fixAll": "explicit"
     },
     "terminal.integrated.env.windows": {
-        "PYHTONPATH": "${workspacefolder}"
+        "PYTHONPATH": "${workspaceFolder}"
     },
     "terminal.integrated.env.linux": {
         "PYTHONPATH": "${workspaceFolder}"
@@ -12,4 +12,5 @@
     "terminal.integrated.env.osx": {
         "PYTHONPATH": "${workspaceFolder}"
     },
+    "python-envs.defaultEnvManager": "ms-python.python:system",
 }

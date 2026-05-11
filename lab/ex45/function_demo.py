@@ -149,9 +149,16 @@ print(
 
 ###m
 def ordered_numbers():
-    previous = "1000"
+    numbers = []
     for num in range(1000, 10000):
-       for d in str(num):
-           
+        s = str(num)
+        cnt = 0
+        for i in range(3):
+            if s[i] <= s[i + 1]:
+                cnt += 1
+        if cnt == 3:
+            numbers.append(s)
+    return numbers
 
-ordered_numbers()
+
+print(f"ordered_numbers, Ergebnis: {ordered_numbers()}")

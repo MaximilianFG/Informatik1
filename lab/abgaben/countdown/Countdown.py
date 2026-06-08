@@ -4,24 +4,37 @@ from PySide6.QtCore import QUrl, QTimer, QPoint, QRect
 
 from tools.pyside6 import BaseWindow, launch
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
+TIMESLOTS = [
+    time(8, 15),
+    time(10, 00),
+    time(11, 45),
+    time(14, 15),
+    time(16, 00),
+    time(17, 45),
+    time(19, 30),
+]
 
 
 class MyApp(BaseWindow):
+    def _get_next_slot(self):
+        now = datetime.now()
+        current_time = now.time()
+
+        for slot in TIMESLOTS:
+            return now.replace(hour=slot.hour, minute=slot.minute, second=0)
+
+        return (now + timedelta(days=1)).replace(
+            hour=TIMESLOTS[0].hour, minute=TIMESLOTS[0].minute, second=0
+        )
+
     def setup(self):
-        current_time = datetime.now()
-        target_time = current_time.replace(hour=8, minute=15, second=0)
-
         self.override_target = None
-
         self.countdown()
-
-        if target_time <= current_time:
-            target_time += timedelta(days=1)
 
         self.total_seconds_start = (target_time - current_time).total_seconds()
 
